@@ -51,7 +51,7 @@ class Server:
         page_dict["page_size"] = len(curr_page)
         page_dict["page"] = page
         page_dict["data"] = curr_page
-        page_dict["next_page"] = page + 1 if len(curr_page) != 0 else None
+        page_dict["next_page"] = page + 1 if page + 1 <= total_pages else None
         page_dict["prev_page"] = page - 1 if page != 1 else None
         page_dict["total_pages"] = total_pages
         return page_dict
