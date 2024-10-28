@@ -47,9 +47,11 @@ class Server:
         """returns hypermedia about pagination"""
         curr_page = self.get_page(page, page_size)
         page_dict = {}
+        total_pages = math.ceil(len(self.dataset()) / page_size)
         page_dict["page_size"] = len(curr_page)
         page_dict["page"] = page
         page_dict["data"] = curr_page
         page_dict["next_page"] = page + 1 if len(curr_page) != 0 else None
         page_dict["prev_page"] = page - 1 if page != 1 else None
+        page_dict["total_pages"] = total_pages
         return page_dict
