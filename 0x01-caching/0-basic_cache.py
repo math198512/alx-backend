@@ -9,4 +9,4 @@ class BasicCache(BaseCaching):
 
     def put(self, key, item):
         """put method"""
-        self.cache_data[key] = ite
+        self.cache_data[key] = item
