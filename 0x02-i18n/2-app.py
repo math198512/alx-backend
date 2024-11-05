@@ -23,13 +23,7 @@ app.config.from_object(Config)
 
 @babel.localeselector
 def get_locale():
-    # if a user is logged in, use the locale from the user settings
-    user = getattr(g, 'user', None)
-    if user is not None:
-        return user.locale
-    # otherwise try to guess the language from the user accept
-    # header the browser transmits.  We support fr/en in this
-    # example.  The best match wins.
+    """determine the best match with our supported languages."""
     return request.accept_languages.best_match(['fr', 'en'])
 
 
