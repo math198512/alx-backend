@@ -33,7 +33,6 @@ def get_locale():
     return request.accept_languages.best_match(['fr', 'en'])
 
 
-
 @app.route("/", methods=['GET'], strict_slashes=False)
 def index():
     """template that simply outputs Welcome to Holberton"""
