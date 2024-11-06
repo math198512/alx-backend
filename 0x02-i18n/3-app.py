@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Basic Flask app"""
+"""Basic Flask app with locale"""
 import babel
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
@@ -11,7 +11,7 @@ babel = Babel(app)
 
 class Config:
     """
-    Config class
+    Config class for locale
     """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
@@ -24,10 +24,7 @@ app.config.from_object(Config)
 @babel.localeselector
 def get_locale():
     """determine the best match with our supported languages."""
-    locale = request.args.get('locale', '').strip()
-    if locale and locale in Config.LANGUAGES:
-        return locale
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(['fr', 'en'])
 
 
 @app.route("/", methods=['GET'], strict_slashes=False)
