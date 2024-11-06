@@ -2,7 +2,8 @@
 """Basic Flask app"""
 import babel
 from flask import Flask, render_template, request, g
-from flask_babel import Babel
+from flask_babel import Babel, _
+
 
 
 app = Flask(__name__)
@@ -30,4 +31,4 @@ def get_locale():
 @app.route("/", methods=['GET'], strict_slashes=False)
 def index():
     """template that simply outputs Welcome to Holberton"""
-    return render_template('2-index.html')
+    return render_template('3-index.html')
