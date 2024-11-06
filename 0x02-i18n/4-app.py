@@ -4,8 +4,10 @@ import babel
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 
-
+# Instantiate the application object
 app = Flask(__name__)
+
+# Wrap the application with Babel
 babel = Babel(app)
 
 
